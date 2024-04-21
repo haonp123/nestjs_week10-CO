@@ -4,11 +4,12 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from './users/users.module';
 import { TransactionsModule } from './transactions/transactions.module';
+import * as process from "process";
 
 @Module({
   imports: [
     MongooseModule.forRoot(
-      'mongodb+srv://haonp123:W4dPDkjGxt34WG0m@cluster0.qqv5nam.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
+      process.env.MONGODB_URI,
     ),
     UsersModule,
     TransactionsModule,
